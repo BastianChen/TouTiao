@@ -1,0 +1,162 @@
+apply plugin: 'com.android.application'
+
+ext {
+    SUPPORT_LIBRARY_VERSION = '27.1.1'
+}
+
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "com.meiji.toutiao"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 13
+        versionName "1.3.1"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+    signingConfigs {
+        release {
+//            Properties props = new Properties()
+//            props.load(new FileInputStream(file("/sign/sign.properties")))
+            // 变量在 Travis CI 后台设置好
+            keyAlias System.getenv("KEY_ALIAS")
+            keyPassword System.getenv("KEY_PASSWORD")
+            storeFile file("../KeyStore.jks")
+            storePassword System.getenv("STORE_PASSWORD")
+        }
+        debug {
+            // 部分第三方SDK要绑定签名, 故使用 release 的签名, 方便测试
+            // 使用 try catch 是防止 Travis CI 打包失败
+            try {
+                Properties props = new Properties()
+                props.load(new FileInputStream(file("/sign/sign.properties")))
+                keyAlias props['KEY_ALIAS']
+                keyPassword props['KEY_PASSWORD']
+                storeFile file(props['KEYSTORE_FILE'])
+                storePassword props['STORE_PASSWORD']
+            } catch (Exception e) {
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true  //设为false即可断点调试
+            shrinkResources true  //自动移除不用资源
+            debuggable false //设为true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为Toutiao_release_v0.1_2017-02-26.apk
+                        def fileName = "Toutiao_release_v${defaultConfig.versionName}_${releaseTime()}.apk"
+                        outputFileName = fileName
+                    }
+                }
+            }
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        disable 'CheckResult'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:${SUPPORT_LIBRARY_VERSION}"
+    implementation "com.android.support:cardview-v7:${SUPPORT_LIBRARY_VERSION}"
+    implementation "com.android.support:design:${SUPPORT_LIBRARY_VERSION}"
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation "com.android.support:support-v13:${SUPPORT_LIBRARY_VERSION}"
+    implementation "com.android.support:support-annotations:${SUPPORT_LIBRARY_VERSION}"
+
+    //    implementation "com.android.support:customtabs:$SUPPORT_LIBRARY_VERSION"
+
+    //    implementation "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
+
+    // 解析JSON
+    implementation 'com.google.code.gson:gson:2.8.2'
+
+    // 图片加载
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+
+    // 解析HTML
+    implementation 'org.jsoup:jsoup:1.11.2'
+
+    // 图片浏览
+    implementation 'com.github.chrisbanes.photoview:library:1.2.4'
+
+    // 协议Dialog
+    implementation 'de.psdev.licensesdialog:licensesdialog:1.8.3'
+
+    // 饺子视频播放器
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.7'
+
+    // retrofit 2
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    // 持久化 Cookie
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+    // RxJava 2
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.12'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    // AutoDispose
+    implementation 'com.uber.autodispose:autodispose:0.7.0'
+    implementation 'com.uber.autodispose:autodispose-android:0.7.0'
+    implementation 'com.uber.autodispose:autodispose-android-archcomponents:0.7.0'
+
+    // okhttp 3
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    debugImplementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+    // MD dialog
+    implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
+
+    // 权限管理
+    implementation 'com.yanzhenjie:permission:2.0.0-rc3'
+
+    // 调试工具
+    debugImplementation 'com.facebook.stetho:stetho:1.5.0'
+
+    // 简化版 Adapter
+    implementation 'me.drakeet.multitype:multitype:3.4.4'
+
+    // RxBinding
+    implementation 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.1.1'
+
+    // 响应式排版布局
+    implementation 'com.google.android:flexbox:0.3.2'
+
+    // 滑动返回 https://oss.sonatype.org/content/repositories/snapshots/com/r0adkll/slidableactivity/
+    implementation 'com.r0adkll:slidableactivity:2.0.7-SNAPSHOT'
+
+    // 带刻度的 SeekBar
+    implementation 'com.github.Jay-Goo:RangeSeekBar:v1.2.2'
+
+    // 高亮功能提示效果 https://material.google.com/growth-communications/feature-discovery.html#feature-discovery-design
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.11.0'
+
+    // LeakCanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+
+    // ViewPager 指示器
+    implementation 'com.pacioianu.david:ink-page-indicator:1.3.0'
+}

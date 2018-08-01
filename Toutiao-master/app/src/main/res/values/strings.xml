@@ -1,0 +1,154 @@
+<resources>
+    <string name="app_name">头条</string>
+
+    <!-- Example General com.meiji.toutiao.settings -->
+    <string name="switch_photo_mode">无图模式</string>
+    <string name="basic_setting">基本设置</string>
+    <string name="switch_no_photo_mode_summary">开启后在非Wifi环境下不加载图片</string>
+    <string name="switch_night_mode">夜间模式</string>
+    <string name="switch_night_mode_summary">切换夜间皮肤</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="clear_cache_successfully">清理成功</string>
+    <string name="other_setting">其他设置</string>
+    <string name="about_settings">关于</string>
+    <string name="choose_theme_color">主题颜色</string>
+    <string name="choose_theme_color_summary">自定义主题颜色</string>
+    <string name="back">返回</string>
+    <string name="nav_bar_coloration">导航栏着色</string>
+    <string name="nav_bar_coloration_summary">导航栏颜色跟随主题颜色</string>
+    <string name="choose_icon">更换图标</string>
+    <string name="choose_icon_summary">重启App生效(可以将App从最近任务列表删除来重启)</string>
+    <string name="slidable_title">滑动返回</string>
+    <string name="slidable_summary">类似 iOS 左侧滑动返回</string>
+    <string name="video_setting">视频设置</string>
+    <string name="video_auto_play">自动播放视频</string>
+    <string name="video_auto_play_summary">开启后在Wifi环境下自动播放视频</string>
+    <string name="auto_night_mode">自动切换夜间模式</string>
+    <string name="auto_night_mode_summary">设置切换的时间</string>
+    <string name="auto_night_mode_subsummary">重启App生效</string>
+    <string name="auto_night_category">时间</string>
+    <string name="auto_night_start">夜间模式开始时间</string>
+    <string name="auto_day_start">日间模式开始时间</string>
+
+    <!-- Menu Action -->
+    <string name="action_search">搜索</string>
+    <string name="action_setting">设置</string>
+    <string name="action_change_theme">切换主题</string>
+    <string name="action_open_comment">查看评论</string>
+    <string name="action_follow_media">关注此头条号</string>
+    <string name="action_share">分享</string>
+    <string name="action_download">下载</string>
+    <string name="action_open_in_browser">在浏览器中打开</string>
+    <string name="action_copy_content">复制内容</string>
+    <string name="action_unfollow_media">取消关注</string>
+    <string name="action_open_media_home">查看此头条号主页</string>
+
+    <!-- Title -->
+    <string name="title_news">新闻</string>
+    <string name="title_other">其他</string>
+    <string name="title_photo">图片</string>
+    <string name="title_video">视频</string>
+    <string name="title_video_content">视频播放</string>
+    <string name="title_settings">设置</string>
+    <string name="title_news_content">新闻内容</string>
+    <string name="title_joke_comment">段子评论</string>
+    <string name="title_search">搜索结果</string>
+    <string name="title_funny_content">搞笑内容</string>
+    <string name="title_photo_content">图片浏览</string>
+    <string name="title_item_drag">拖拽排序</string>
+    <string name="title_comment">评论</string>
+    <string name="title_about">关于</string>
+    <string name="title_media">头条号</string>
+    <string name="title_wenda">问答</string>
+    <string name="title_wenda_detail">回答</string>
+
+    <!-- Bottom Sheet List -->
+    <string name="copy_content">复制内容</string>
+    <string name="share_content">分享内容</string>
+    <string name="download_image">下载图片</string>
+    <string name="share_image">分享图片</string>
+
+    <!-- Item Drag -->
+    <string name="tip_drag">长按编辑,拖拽排序</string>
+    <string name="my_cahnnel">我的频道</string>
+    <string name="other_channel">隐藏频道</string>
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
+
+    <!-- View Action -->
+    <string name="network_error">网络不给力</string>
+    <string name="retry">重试</string>
+    <string name="share_to">分享</string>
+    <string name="loading">加载中</string>
+    <string name="copied_to_clipboard">复制成功</string>
+    <string name="no_more_content">暂无更多内容</string>
+    <string name="no_more_comment">没有更多评论了</string>
+    <string name="saved">保存成功</string>
+    <string name="permission_denied">没有权限</string>
+    <string name="double_click_exit">再按一次退出程序</string>
+    <string name="search_hint">搜素</string>
+    <string name="anymore_unfollow">不再关注</string>
+    <string name="action_unfollow_media_success">取消关注成功</string>
+    <string name="undo">撤回</string>
+    <string name="cancel">取消</string>
+    <string name="error">发生错误</string>
+    <string name="delete_all_search_history">是否删除所有搜索历史记录?</string>
+    <string name="search_hot">热门搜索</string>
+    <string name="change_another">换一批</string>
+    <string name="search_history">搜索历史</string>
+    <string name="clear">清空</string>
+    <string name="save">保存</string>
+    <string name="subscribe">订阅</string>
+
+    <!-- About -->
+    <string name="changelog">更新日志</string>
+    <string name="changelog_url">https://github.com/iMeiji/Toutiao/releases</string>
+    <string name="about_developers_label">主要开发者</string>
+    <string name="about_developers">https://github.com/iMeiji</string>
+    <string name="share_app_text">来瞧瞧这个：适配了质感设计的 今日头条！</string>
+    <string name="source_code">源代码</string>
+    <string name="source_code_url">https://github.com/iMeiji/Toutiao</string>
+    <string name="about_libraries_label">开源许可</string>
+    <string name="about_libraries_summary">查看开源许可信息</string>
+    <string name="copyright">版权声明</string>
+    <string name="copyright_summary">仅作个人及非商业用途</string>
+    <string name="copyright_content">本App所使用的所有API均由 今日头条 提供, 本人采取非正常手段获取. 本程序仅供学习交流, 不可用于任何商业用途.</string>
+    <string name="version">版本</string>
+
+
+    <!-- Add Activity -->
+    <string name="has_been_added">已近添加过了</string>
+    <string name="add_success">添加成功</string>
+    <string name="add_fail">添加失败</string>
+    <string name="formal_incorrect">格式不正确</string>
+    <string name="incorrect_link">链接不正确</string>
+    <string name="media_hint_desc">头条号订阅为空</string>
+    <string name="done">完成</string>
+    <string name="custom">自定义</string>
+
+    <!--Main Activity-->
+    <string name="navigation_drawer_open">打开侧栏</string>
+    <string name="navigation_drawer_close">关闭侧栏</string>
+
+
+    <!--Navigation Item-->
+    <string name="nav_account">个人</string>
+    <string name="nav_switch_night_mode">切换主题</string>
+    <string name="nav_setting">设置</string>
+    <string name="nav_share">分享</string>
+    <string name="video_force_landscape">视频横屏</string>
+    <string name="video_force_landscape_summary">开启后强制横屏播放视频(能自动旋转就别开)</string>
+
+
+    <string name="button_allow">允许</string>
+    <string name="button_deny">拒绝</string>
+    <string name="button_enter">确定</string>
+    <string name="button_cancel">取消</string>
+
+    <!-- Permission -->
+    <string name="permission_write_rationale">使用此功能需要打开存储权限</string>
+    <string name="permission_write_denied">你拒绝了权限，该功能不可用</string>
+    <string name="permission_write_never_ask">用户设置不再询问权限申请</string>
+
+
+</resources>
